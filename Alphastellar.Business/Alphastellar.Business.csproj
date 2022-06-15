@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Alphastellar.Common\Alphastellar.Common.csproj" />
+    <ProjectReference Include="..\Alphastellar.DataAccess\Alphastellar.DataAccess.csproj" />
+    <ProjectReference Include="..\Alphastellar.Model\Alphastellar.Model.csproj" />
+  </ItemGroup>
+
+</Project>

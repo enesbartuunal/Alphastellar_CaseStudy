@@ -14,6 +14,7 @@ namespace Alphastellar.Business.Mapper
         public MappingProfile()
         {
             CreateMap<Car, CarDto>();
+            CreateMap<CarDto, Car>();
             CreateMap<Bus, BusDto>();
             CreateMap<Boat, BoatDto>();
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Alphastellar.DataAccess.Entites.Abstract
 {
-    public abstract class Vehicle:EntityBase
+    public abstract class Vehicle
     {
         public string color { get; set; }
     }

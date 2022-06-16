@@ -7,12 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.6" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Alphastellar.Business\Alphastellar.Business.csproj" />
     <ProjectReference Include="..\Alphastellar.Common\Alphastellar.Common.csproj" />
+    <ProjectReference Include="..\Alphastellar.DataAccess\Alphastellar.DataAccess.csproj" />
     <ProjectReference Include="..\Alphastellar.Model\Alphastellar.Model.csproj" />
   </ItemGroup>
 

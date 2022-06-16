@@ -12,17 +12,33 @@ namespace Alphastellar.Api.Controllers
     [ApiController]
     public class MainController : ControllerBase
     {
-        private readonly IServiceBase<Car, CarDto> _carService;
-        private readonly IServiceBase<Bus, BusDto> _busService;
-        private readonly IServiceBase<Boat, BoatDto> _boatService;
+        private readonly CarService _carService;
+        private readonly BusService _busService;
+        private readonly BoatService _boatService;
         public MainController(CarService carService, BusService busService, BoatService boatService)
         {
             _busService = busService;
             _carService = carService;
             _boatService = boatService;
         }
-
         [HttpGet]
+        [Route("/[controller]/[action]")]
+        public async Task<IActionResult> GetCars()
+        {
+            try
+            {
+                var carsList = await _carService.Get();
+                return Ok(carsList.Data);
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(new Result<IActionResult>(false, ResultConstant.RecordNotFound));
+            }
+
+        }
+        [HttpGet]
+        [Route("/[controller]/[action]/{id}")]
         public async Task<IActionResult> GetCarsByColor(string color)
         {
             try
@@ -38,6 +54,7 @@ namespace Alphastellar.Api.Controllers
 
         }
         [HttpGet]
+        [Route("/[controller]/[action]/{id}")]
         public async Task<IActionResult> GetBoatsByColor(string color)
         {
             try
@@ -53,6 +70,7 @@ namespace Alphastellar.Api.Controllers
 
         }
         [HttpGet]
+        [Route("/[controller]/[action]/{id}")]
         public async Task<IActionResult> GetBusesByColor(string color)
         {
             try
@@ -71,7 +89,7 @@ namespace Alphastellar.Api.Controllers
         public async Task<IActionResult> ChooseHeadLightsOption(int? id, [FromBody] bool headlights)
         {
 
-            var model = new CarDto() { id = (int)id, headlights = headlights };
+            var model = new CarDto() { CarID = (int)id, headlights = headlights };
             var dataResponce = await _carService.Update(model);
             if (dataResponce.IsSuccess)
                 return Ok(new Result<IActionResult>(true, ResultConstant.RecordUpdateSuccessfully));

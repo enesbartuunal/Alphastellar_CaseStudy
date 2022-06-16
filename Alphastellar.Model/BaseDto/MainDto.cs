@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Alphastellar.DataAccess.Entites.Abstract
+namespace Alphastellar.Model.BaseDto
 {
-    public abstract class EntityBase
+    public abstract class MainDto
     {
-        public int id { get; set; }
+        public string color { get; set; }
     }
 }
